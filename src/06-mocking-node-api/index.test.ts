@@ -31,7 +31,6 @@ describe('doStuffByTimeout', () => {
 
   test('should call callback only after timeout', () => {
     const TIMEOUT_VALUE = 2000;
-
     const cb = jest.fn();
 
     doStuffByTimeout(cb, TIMEOUT_VALUE);
@@ -59,7 +58,6 @@ describe('doStuffByInterval', () => {
 
   test('should set interval with provided callback and timeout', () => {
     const INTERVAL_VALUE = 1250;
-
     const cb = jest.fn();
 
     doStuffByInterval(cb, INTERVAL_VALUE);
@@ -73,7 +71,6 @@ describe('doStuffByInterval', () => {
   test('should call callback multiple times after multiple intervals', () => {
     const INTERVAL_VALUE = 1250;
     const TIMES = 2;
-
     const cb = jest.fn();
 
     doStuffByInterval(cb, INTERVAL_VALUE);
@@ -117,9 +114,11 @@ describe('readFileAsynchronously', () => {
 
   test('should return file content if file exists', async () => {
     const pathname = './file.md';
+
     jest.spyOn(fs, 'existsSync').mockReturnValue(true);
 
     const expectedContent = await readFileAsynchronously(pathname);
+
     expect(expectedContent).toBe(CONTENT);
   });
 });
